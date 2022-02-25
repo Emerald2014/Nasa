@@ -1,5 +1,7 @@
 package ru.kudesnik.nasa.view.main
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -38,6 +40,13 @@ class PictureOfTheDayFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getLiveData().observe(viewLifecycleOwner) { renderData(it) }
         viewModel.sendServerRequest()
+
+        binding.inputLayout.setEndIconOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW).apply {
+                data =
+                    Uri.parse("https://ru.wikipedia.org/wiki/${binding.inputEditText.text.toString()}")
+            })
+        }
     }
 
     private fun renderData(pictureOfTheDayState: PictureOfTheDayState) {
@@ -45,7 +54,7 @@ class PictureOfTheDayFragment : Fragment() {
             is PictureOfTheDayState.Error -> {
                 //HomeWork
             }
-            is PictureOfTheDayState.Loading ->{
+            is PictureOfTheDayState.Loading -> {
                 //HomeWork
             }
             is PictureOfTheDayState.Success -> {

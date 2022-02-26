@@ -3,17 +3,20 @@ package ru.kudesnik.nasa.view.main
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import coil.load
+import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.snackbar.Snackbar
 import ru.kudesnik.nasa.R
 import ru.kudesnik.nasa.databinding.FragmentMainBinding
+import ru.kudesnik.nasa.view.MainActivity
+import ru.kudesnik.nasa.view.chips.ChipsFragment
 import ru.kudesnik.nasa.viewmodel.PictureOfTheDayState
 import ru.kudesnik.nasa.viewmodel.PictureOfTheDayViewModel
 
@@ -35,13 +38,14 @@ class PictureOfTheDayFragment : Fragment() {
         _binding =
             FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
+        (requireActivity() as MainActivity).setSupportActionBar(binding.bottomAppBar)
         viewModel.getLiveData().observe(viewLifecycleOwner) { renderData(it) }
         viewModel.sendServerRequest()
 
@@ -53,54 +57,74 @@ class PictureOfTheDayFragment : Fragment() {
         }
 
         bottomSheetBehavior = BottomSheetBehavior.from(binding.included.bottomSheetContainer)
-    bottomSheetBehavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
-        bottomSheetBehavior.addBottomSheetCallback(object: BottomSheetBehavior.BottomSheetCallback() {
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+        bottomSheetBehavior.addBottomSheetCallback(object :
+            BottomSheetBehavior.BottomSheetCallback() {
             override fun onStateChanged(bottomSheet: View, newState: Int) {
-//            when (newState) {
-//
-//                BottomSheetBehavior.STATE_COLLAPSED -> {
-//                    TODO()
-//                }
-//                BottomSheetBehavior.STATE_DRAGGING -> {
-//                    TODO()
-//                }
-//                BottomSheetBehavior.STATE_EXPANDED -> {
-//                    TODO()
-//                }
-//                BottomSheetBehavior.STATE_HALF_EXPANDED -> {
-//                    TODO()
-//                }
-//                BottomSheetBehavior.STATE_HIDDEN -> {
-//                    TODO()
-//                }
-//                BottomSheetBehavior.STATE_SETTLING -> {
-//                    TODO()
-//                }
-//            }
             }
 
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
-//                TODO("Not yet implemented")
             }
 
         })
-
+        binding.fab.setOnClickListener {
+            if (isMain) {
+                binding.bottomAppBar.navigationIcon = null
+                binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
+                binding.fab.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        requireContext(),
+                        R.drawable.ic_back_fab
+                    )
+                )
+                binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar_other_screen)
+                isMain = false
+            } else {
+                binding.bottomAppBar.navigationIcon = ContextCompat.getDrawable(
+                    requireContext(),
+                    R.drawable.ic_hamburger_menu_bottom_bar
+                )
+                binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
+                binding.fab.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        requireContext(),
+                        R.drawable.ic_plus_fab
+                    )
+                )
+                binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar)
+                isMain = true
+            }
+        }
     }
 
-    private fun renderData(pictureOfTheDayState: PictureOfTheDayState) {
+    var isMain: Boolean = true
+
+
+    private fun renderData(pictureOfTheDayState: PictureOfTheDayState) = with(binding) {
         when (pictureOfTheDayState) {
             is PictureOfTheDayState.Error -> {
-                //HomeWork
+                progressBar.visibility = View.GONE
+                fragmentMainRoot.showSnackBar(
+                    getString(R.string.error),
+                    getString(R.string.reload),
+                    {
+                        viewModel.sendServerRequest()
+                    })
             }
             is PictureOfTheDayState.Loading -> {
-                //HomeWork
+                progressBar.visibility = View.VISIBLE
             }
             is PictureOfTheDayState.Success -> {
+                progressBar.visibility = View.GONE
+
+                binding.included.bottomSheetDescriptionHeader.text =
+                    pictureOfTheDayState.serverResponseData.title
+                binding.included.bottomSheetDescription.text =
+                    pictureOfTheDayState.serverResponseData.explanation
                 val serverResponseData = pictureOfTheDayState.serverResponseData
                 val url = serverResponseData.url
                 if (url.isNullOrEmpty()) {
-                    //showError("Сообщение, что ссылка пустая")
-//                    toast("Link is empty")
+                    Toast.makeText(requireContext(), "Ссылка пустая", Toast.LENGTH_SHORT).show()
                 } else {
                     //showSuccess()
                     binding.imageView.load(url) {
@@ -116,6 +140,41 @@ class PictureOfTheDayFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_bottom_bar, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.app_bar_fav -> Toast.makeText(requireContext(), "app_bar_fav", Toast.LENGTH_SHORT)
+                .show()
+            R.id.app_bar_settings -> {
+                Toast.makeText(
+                    requireContext(),
+                    "app_bar_settings",
+                    Toast.LENGTH_SHORT
+                ).show()
+                activity?.supportFragmentManager?.beginTransaction()
+                    ?.add(R.id.container, ChipsFragment())?.addToBackStack(null)?.commit()
+            }
+            android.R.id.home -> BottomNavigationDrawerFragment().show(
+                requireActivity().supportFragmentManager,
+                ""
+            )
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    fun View.showSnackBar(
+        text: String,
+        actionText: String,
+        action: (View) -> Unit,
+        length: Int = Snackbar.LENGTH_INDEFINITE
+    ) {
+        Snackbar.make(this, text, length).setAction(actionText, action).show()
     }
 
     companion object {

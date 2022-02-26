@@ -19,8 +19,8 @@ class PictureOfTheDayViewModel(
         return liveData
     }
 
-  fun sendServerRequest() {
-        liveData.value=PictureOfTheDayState.Loading(null)
+    fun sendServerRequest() {
+        liveData.value = PictureOfTheDayState.Loading(null)
         pictureOfTheDayRetrofitImpl.getRetrofitImpl().getPictureOfTheDay(NASA_API_KEY).enqueue(
 
             object : Callback<PictureOfTheDayResponseData> {
@@ -29,22 +29,21 @@ class PictureOfTheDayViewModel(
                     response: Response<PictureOfTheDayResponseData>
                 ) {
                     if (response.isSuccessful && response.body() != null) {
-                        liveData.value = PictureOfTheDayState.Success(response.body()!!)
+//                        liveData.value = PictureOfTheDayState.Success(response.body()!!)
 
-//                        response.body()?.let {
-//
-//                            liveData.postValue(PictureOfTheDayState.Success(it))
-//                        }
+                        response.body()?.let {
+
+                            liveData.postValue(PictureOfTheDayState.Success(it))
+                        }
                     } else {
-                        //вывести снекбар, что что-то пошло не так
+                        //Сделаю позже, пока не придумал, как обработать
                     }
                 }
 
                 override fun onFailure(call: Call<PictureOfTheDayResponseData>, t: Throwable) {
-//HomeWork
+//Сделаю позже, пока не придумал, как обработать
                 }
             }
         )
-
     }
 }

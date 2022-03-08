@@ -241,8 +241,9 @@ app:singleSelection="true"
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/tab_selector"
-        app:tabTextColor="@drawable/tab_text_selector"
+        app:tabBackground="@drawable/tab_selector"
+        app:tabSelectedTextColor="@color/green_600"
+        app:tabTextColor="@color/orange_600"
         app:tabGravity="start"
         app:tabMode="auto">
 

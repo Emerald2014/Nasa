@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
     private fun getCurrentTheme(): Int {
         val sharedPreferences: SharedPreferences = getSharedPreferences(KEY_SP, MODE_PRIVATE)
         return (sharedPreferences.getInt(KEY_CURRENT_THEME, -1))

@@ -51,8 +51,7 @@
         android:id="@+id/chipGroupChoiceTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-app:singleSelection="true"
-       >
+        app:singleSelection="true">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipGreen"
@@ -63,11 +62,27 @@ app:singleSelection="true"
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipOrange"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
 
             android:text="Оранжевая тема" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipNight"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Темная тема" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipDay"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Светлая тема" />
 
     </com.google.android.material.chip.ChipGroup>
 
@@ -241,10 +256,11 @@ app:singleSelection="true"
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/tab_selector"
-        app:tabTextColor="@drawable/tab_text_selector"
+        app:tabBackground="@drawable/tab_selector"
         app:tabGravity="start"
-        app:tabMode="auto">
+        app:tabMode="auto"
+        app:tabSelectedTextColor="@color/green_600"
+        app:tabTextColor="@color/orange_600">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"

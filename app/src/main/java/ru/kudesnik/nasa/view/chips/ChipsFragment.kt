@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.google.android.material.chip.Chip
 import ru.kudesnik.nasa.R
@@ -42,15 +43,27 @@ class ChipsFragment : Fragment() {
                 chipGroupChoiceTheme
             }
         }
-chipGreen.setOnClickListener{
-    Toast.makeText(context, "Выбран Chip on ${chipGreen.text} ", Toast.LENGTH_SHORT).show()
-    parentActivity.setCurrentTheme(R.style.ThemeNasaGreen)
-                parentActivity.recreate()
+        chipGreen.setOnClickListener {
+            Toast.makeText(context, "Выбран Chip on ${chipGreen.text} ", Toast.LENGTH_SHORT).show()
+            parentActivity.setCurrentTheme(R.style.ThemeNasaGreen)
+            parentActivity.recreate()
 
-}
-        chipOrange.setOnClickListener{
+        }
+        chipOrange.setOnClickListener {
             Toast.makeText(context, "Выбран Chip on ${chipOrange.text} ", Toast.LENGTH_SHORT).show()
             parentActivity.setCurrentTheme(R.style.ThemeNasaOrange)
+            parentActivity.recreate()
+
+        }
+        chipNight.setOnClickListener {
+            Toast.makeText(context, "Выбран Chip on ${chipOrange.text} ", Toast.LENGTH_SHORT).show()
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            parentActivity.recreate()
+
+        }
+        chipDay.setOnClickListener {
+            Toast.makeText(context, "Выбран Chip on ${chipOrange.text} ", Toast.LENGTH_SHORT).show()
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             parentActivity.recreate()
 
         }

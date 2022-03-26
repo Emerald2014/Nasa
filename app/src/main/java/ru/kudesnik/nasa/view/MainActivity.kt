@@ -1,9 +1,12 @@
 package ru.kudesnik.nasa.view
 
 import android.content.SharedPreferences
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.security.keystore.KeyNotYetValidException
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import ru.kudesnik.nasa.R
 import ru.kudesnik.nasa.view.main.PictureOfTheDayFragment
 
@@ -17,6 +20,9 @@ class MainActivity : AppCompatActivity() {
         setTheme(getCurrentTheme())
         setContentView(R.layout.activity_main)
         if (savedInstanceState == null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
+            }
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, PictureOfTheDayFragment.newInstance())
                 .commitNow()
@@ -31,6 +37,7 @@ class MainActivity : AppCompatActivity() {
 //        recreate()
 
     }
+
 
     private fun getCurrentTheme(): Int {
         val sharedPreferences: SharedPreferences = getSharedPreferences(KEY_SP, MODE_PRIVATE)

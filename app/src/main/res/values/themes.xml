@@ -22,7 +22,7 @@
         <item name="materialButtonStyle">@style/myButtonStyle</item>
         <item name="bottomAppBarStyle">@style/myBottomAppBarStyle</item>
     </style>
-
+//Зеленая тема
     <style name="ThemeNasaGreen" parent="Theme.Nasa">
         <item name="android:statusBarColor">@color/green_500</item>
         <item name="colorPrimary">@color/green_600</item>
@@ -30,16 +30,18 @@
         <item name="colorSecondary">@color/green_600</item>
 
         <item name="tabStyle">@style/tabsLayout</item>
+<item name="android:fontFamily">@font/lobster</item>
 
         <item name="bottomAppBarStyle">@style/bottomNavigationGreen</item>
         <item name="floatingActionButtonStyle">@style/FABGreen</item>
     </style>
-
+//Оранжевая тема
     <style name="ThemeNasaOrange" parent="Theme.Nasa">
         <item name="android:statusBarColor">@color/orange_500</item>
         <item name="colorPrimary">@color/orange_300</item>
         <item name="android:navigationBarColor">@color/orange_400</item>
         <item name="colorSecondary">@color/orange_600</item>
+        <item name="android:fontFamily">@font/aladin</item>
 
 
         <item name="bottomAppBarStyle">@style/bottomNavigationOrange</item>

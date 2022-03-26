@@ -41,6 +41,51 @@
             android:text="Filter" />
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Выбираем тему"
+        android:textSize="30sp" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroupChoiceTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipGreen"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Зеленая тема" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipOrange"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Оранжевая тема" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipNight"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Темная тема" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipDay"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Светлая тема" />
+
+    </com.google.android.material.chip.ChipGroup>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,12 +93,15 @@
         android:orientation="horizontal">
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/chipOrangeTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Background Color"
+
             app:chipBackgroundColor="@android:color/holo_blue_bright" />
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/chipGreenTheme"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -64,8 +112,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Chip icon"
-            app:iconStartPadding="10dp"
-            app:chipIcon="@drawable/ic_archive" />
+            app:chipIcon="@drawable/ic_archive"
+            app:iconStartPadding="10dp" />
     </LinearLayout>
 
     <com.google.android.material.chip.ChipGroup
@@ -76,12 +124,12 @@
         <com.google.android.material.chip.Chip
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chip" />
+            android:text="Зеленая тема" />
 
         <com.google.android.material.chip.Chip
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Group" />
+            android:text="Оранжевая тема" />
 
         <com.google.android.material.chip.Chip
             android:layout_width="wrap_content"
@@ -108,16 +156,19 @@
         app:singleSelection="true">
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/chipId1"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Choice A" />
+            android:text="Зеленая тема" />
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/chipId2"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
-            android:text="Choice B" />
+            android:text="Оранжевая тема" />
 
         <com.google.android.material.chip.Chip
             style="@style/Widget.MaterialComponents.Chip.Choice"
@@ -201,4 +252,29 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="24dp"
         android:text="Close Icon Listener" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabBackground="@drawable/tab_selector"
+        app:tabGravity="start"
+        app:tabMode="auto"
+        app:tabSelectedTextColor="@color/green_600"
+        app:tabTextColor="@color/orange_600">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Вчера" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Позавчера" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Сегодня" />
+    </com.google.android.material.tabs.TabLayout>
 </LinearLayout>

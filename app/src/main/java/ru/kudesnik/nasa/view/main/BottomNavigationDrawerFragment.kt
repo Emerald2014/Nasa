@@ -27,6 +27,23 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
         return binding.root
 
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.navigationView.setNavigationItemSelectedListener {
+            when(it.itemId) {
+                R.id.navigation_one -> {
+                    
+                }
+            }
+        }
+
+    }
     companion object {
         fun newInstance() = PictureOfTheDayFragment()
     }

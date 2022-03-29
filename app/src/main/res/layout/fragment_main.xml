@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:id="@+id/fragmentMainRoot"
     xmlns:tools="http://schemas.android.com/tools"
-    android:padding="10dp">
+>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"

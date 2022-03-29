@@ -1,5 +1,6 @@
 package ru.kudesnik.nasa.view.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import ru.kudesnik.nasa.R
 import ru.kudesnik.nasa.databinding.BottomNavigationLayoutBinding
 import ru.kudesnik.nasa.databinding.FragmentMainBinding
+import ru.kudesnik.nasa.view.navigation.NavigationActivity
 
 class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
 
@@ -36,14 +38,16 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.navigationView.setNavigationItemSelectedListener {
-            when(it.itemId) {
+            when (it.itemId) {
                 R.id.navigation_one -> {
-                    
+                    startActivity(Intent(requireActivity(), NavigationActivity::class.java))
                 }
             }
-        }
+            true
+                    }
 
     }
+
     companion object {
         fun newInstance() = PictureOfTheDayFragment()
     }

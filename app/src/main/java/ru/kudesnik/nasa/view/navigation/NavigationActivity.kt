@@ -15,8 +15,12 @@ class NavigationActivity : AppCompatActivity() {
         binding.viewPager.adapter = ViewPagerAdapter(supportFragmentManager)
         binding.tabLayout.setupWithViewPager(binding.viewPager)
 
-        binding.tabLayout.getTabAt(EARTH_KEY)?.setIcon(R.drawable.ic_earth)
+        /*binding.tabLayout.getTabAt(EARTH_KEY)?.setIcon(R.drawable.ic_earth)
         binding.tabLayout.getTabAt(MARS_KEY)?.setIcon(R.drawable.ic_mars)
-        binding.tabLayout.getTabAt(System_KEY)?.setIcon(R.drawable.ic_system)
+        binding.tabLayout.getTabAt(System_KEY)?.setIcon(R.drawable.ic_system)*/
+
+        binding.tabLayout.getTabAt(EARTH_KEY)?.setCustomView(R.layout.activity_navigation_tablayout_item_earth)
+        binding.tabLayout.getTabAt(MARS_KEY)?.setCustomView(R.layout.activity_navigation_tablayout_item_mars)
+        binding.tabLayout.getTabAt(System_KEY)?.setCustomView(R.layout.activity_navigation_tablayout_item_system)
     }
 }

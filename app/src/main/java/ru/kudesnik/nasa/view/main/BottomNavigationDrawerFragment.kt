@@ -11,6 +11,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import ru.kudesnik.nasa.R
 import ru.kudesnik.nasa.databinding.BottomNavigationLayoutBinding
 import ru.kudesnik.nasa.databinding.FragmentMainBinding
+import ru.kudesnik.nasa.view.navigation.BottomNavigationActivity
 import ru.kudesnik.nasa.view.navigation.NavigationActivity
 
 class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
@@ -42,9 +43,12 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
                 R.id.navigation_one -> {
                     startActivity(Intent(requireActivity(), NavigationActivity::class.java))
                 }
+                R.id.navigation_two -> {
+                    startActivity(Intent(requireContext(), BottomNavigationActivity::class.java))
+                }
             }
             true
-                    }
+        }
 
     }
 

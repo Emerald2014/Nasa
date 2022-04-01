@@ -8,16 +8,19 @@
         <entry key="..\:/Sukhanov/GB/Nasa/app/src/main/res/drawable/swipe_indicator_active.xml" value="0.196" />
         <entry key="..\:/Sukhanov/GB/Nasa/app/src/main/res/drawable/swipe_indicator_passive.xml" value="0.196" />
         <entry key="..\:/Sukhanov/GB/Nasa/app/src/main/res/layout/activity_bottom_navigation.xml" value="0.18802083333333333" />
+        <entry key="..\:/Sukhanov/GB/Nasa/app/src/main/res/layout/activity_layout.xml" value="0.18802083333333333" />
         <entry key="..\:/Sukhanov/GB/Nasa/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Sukhanov/GB/Nasa/app/src/main/res/layout/activity_navigation.xml" value="0.18802083333333333" />
         <entry key="..\:/Sukhanov/GB/Nasa/app/src/main/res/layout/activity_navigation_tablayout_item_earth.xml" value="0.18802083333333333" />
         <entry key="..\:/Sukhanov/GB/Nasa/app/src/main/res/layout/activity_navigation_tablayout_item_mars.xml" value="0.18802083333333333" />
         <entry key="..\:/Sukhanov/GB/Nasa/app/src/main/res/layout/activity_navigation_tablayout_item_system.xml" value="0.18802083333333333" />
+        <entry key="..\:/Sukhanov/GB/Nasa/app/src/main/res/layout/fragment_constraint.xml" value="0.18802083333333333" />
         <entry key="..\:/Sukhanov/GB/Nasa/app/src/main/res/layout/fragment_earth.xml" value="0.358695652173913" />
         <entry key="..\:/Sukhanov/GB/Nasa/app/src/main/res/layout/fragment_main.xml" value="0.358695652173913" />
         <entry key="..\:/Sukhanov/GB/Nasa/app/src/main/res/layout/fragment_mars.xml" value="0.18802083333333333" />
         <entry key="..\:/Sukhanov/GB/Nasa/app/src/main/res/layout/fragment_system.xml" value="0.67" />
         <entry key="..\:/Sukhanov/GB/Nasa/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.36666666666666664" />
+        <entry key="..\:/Sukhanov/GB/Nasa/app/src/main/res/menu/menu_bottom_navigation_layout.xml" value="0.18802083333333333" />
         <entry key="..\:/Sukhanov/GB/Nasa/app/src/main/res/menu/menu_bottom_navigation_view.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/id-user/AppData/Local/Temp/drawable-temp/fake_of_play_pause_circle.xml" value="0.174" />
         <entry key="..\:/YandexDisk/AndroidStudy/GB/Android2_2_Nasa/app/src/main/res/drawable/ic_plus_fab.xml" value="0.15" />

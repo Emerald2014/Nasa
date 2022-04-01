@@ -6,10 +6,10 @@ import android.os.Bundle
 import android.security.keystore.KeyNotYetValidException
 import ru.kudesnik.nasa.R
 import ru.kudesnik.nasa.view.main.PictureOfTheDayFragment
-
+ val KEY_SP = "sp"
+val KEY_CURRENT_THEME = "current_theme"
 class MainActivity : AppCompatActivity() {
-    private val KEY_SP = "sp"
-    val KEY_CURRENT_THEME = "current_theme"
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,5 +1,6 @@
 package ru.kudesnik.nasa.view.navigation
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,11 +8,15 @@ import androidx.fragment.app.Fragment
 import ru.kudesnik.nasa.R
 import ru.kudesnik.nasa.databinding.ActivityBottomNavigationBinding
 import ru.kudesnik.nasa.databinding.ActivityNavigationBinding
+import ru.kudesnik.nasa.view.KEY_CURRENT_THEME
+import ru.kudesnik.nasa.view.KEY_SP
 
 class BottomNavigationActivity : AppCompatActivity() {
     lateinit var binding: ActivityBottomNavigationBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(getCurrentTheme())
+
         binding = ActivityBottomNavigationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -43,5 +48,10 @@ class BottomNavigationActivity : AppCompatActivity() {
 
     private fun navigationTo(f: Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.container, f).commit()
+    }
+
+    private fun getCurrentTheme(): Int {
+        val sharedPreferences: SharedPreferences = getSharedPreferences(KEY_SP, MODE_PRIVATE)
+        return (sharedPreferences.getInt(KEY_CURRENT_THEME, -1))
     }
 }

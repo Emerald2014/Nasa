@@ -4,9 +4,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 
- const val EARTH_KEY = 0
- const val MARS_KEY = 1
- const val System_KEY = 2
+const val EARTH_KEY = 0
+const val MARS_KEY = 1
+const val System_KEY = 2
 
 class ViewPagerAdapter(private val fragmentManager: FragmentManager) :
     FragmentStatePagerAdapter(fragmentManager) {
@@ -20,7 +20,7 @@ class ViewPagerAdapter(private val fragmentManager: FragmentManager) :
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
-        return when(position) {
+        return when (position) {
             EARTH_KEY -> "Earth"
             MARS_KEY -> "Mars"
             System_KEY -> "System"

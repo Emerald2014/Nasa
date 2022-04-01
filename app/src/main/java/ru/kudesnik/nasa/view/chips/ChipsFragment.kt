@@ -11,6 +11,7 @@ import com.google.android.material.chip.Chip
 import ru.kudesnik.nasa.R
 import ru.kudesnik.nasa.databinding.FragmentChipsBinding
 import ru.kudesnik.nasa.databinding.FragmentMainBinding
+import ru.kudesnik.nasa.view.KEY_CURRENT_THEME
 import ru.kudesnik.nasa.view.MainActivity
 import ru.kudesnik.nasa.view.main.PictureOfTheDayFragment
 
@@ -37,18 +38,18 @@ class ChipsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         super.onViewCreated(view, savedInstanceState)
-        when (parentActivity.KEY_CURRENT_THEME) {
+        when (KEY_CURRENT_THEME) {
             R.style.ThemeNasaGreen.toString() -> {
                 chipGroupChoiceTheme
             }
         }
-chipGreen.setOnClickListener{
-    Toast.makeText(context, "Выбран Chip on ${chipGreen.text} ", Toast.LENGTH_SHORT).show()
-    parentActivity.setCurrentTheme(R.style.ThemeNasaGreen)
-                parentActivity.recreate()
+        chipGreen.setOnClickListener {
+            Toast.makeText(context, "Выбран Chip on ${chipGreen.text} ", Toast.LENGTH_SHORT).show()
+            parentActivity.setCurrentTheme(R.style.ThemeNasaGreen)
+            parentActivity.recreate()
 
-}
-        chipOrange.setOnClickListener{
+        }
+        chipOrange.setOnClickListener {
             Toast.makeText(context, "Выбран Chip on ${chipOrange.text} ", Toast.LENGTH_SHORT).show()
             parentActivity.setCurrentTheme(R.style.ThemeNasaOrange)
             parentActivity.recreate()

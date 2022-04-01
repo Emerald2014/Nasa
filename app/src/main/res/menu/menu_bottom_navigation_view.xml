@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/bottom_view_earth"
         android:icon="@drawable/ic_earth"
-        android:title="Earth" />
+        android:title="Earth"
+        app:tooltipText="Это Земля" />
 
     <item
         android:id="@+id/bottom_view_mars"
         android:icon="@drawable/ic_mars"
-        android:title="Mars" />
+        android:title="Mars"
+        app:tooltipText="Это Марс" />
 
     <item
         android:id="@+id/bottom_view_system"
         android:icon="@drawable/ic_system"
-        android:title="System" />
+        android:title="System"
+        app:tooltipText="Это Система" />
 </menu>

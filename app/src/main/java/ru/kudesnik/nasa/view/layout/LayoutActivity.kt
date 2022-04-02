@@ -1,10 +1,13 @@
-package ru.kudesnik.nasa.view.constraint
+package ru.kudesnik.nasa.view.layout
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import ru.kudesnik.nasa.R
 import ru.kudesnik.nasa.databinding.ActivityLayoutBinding
+import ru.kudesnik.nasa.view.layout.constraint.ConstraintFragment
+import ru.kudesnik.nasa.view.layout.coordinator.CoordinatorFragment
+import ru.kudesnik.nasa.view.layout.motion.MotionFragment
 
 class LayoutActivity : AppCompatActivity() {
 
@@ -30,7 +33,7 @@ class LayoutActivity : AppCompatActivity() {
                     true
                 }
                 R.id.bottom_motion -> {
-//                    navigateUpTo(MotionFragment())
+                    navigateUpTo(MotionFragment())
                     true
                 }
                 else -> {

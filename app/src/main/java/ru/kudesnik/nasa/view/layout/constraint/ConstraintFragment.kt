@@ -1,4 +1,4 @@
-package ru.kudesnik.nasa.view.constraint
+package ru.kudesnik.nasa.view.layout.constraint
 
 import android.os.Bundle
 import android.view.LayoutInflater

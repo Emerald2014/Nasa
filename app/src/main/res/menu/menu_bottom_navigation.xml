@@ -14,5 +14,10 @@
             android:id="@+id/navigation_three"
             android:icon="@drawable/ic_send"
             android:title="На экран LayoutActivity" />
+
+        <item
+            android:id="@+id/navigation_four"
+            android:icon="@drawable/ic_send"
+            android:title="На экран AnimationActivity" />
     </group>
 </menu>

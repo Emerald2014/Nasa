@@ -10,14 +10,14 @@ import ru.kudesnik.nasa.databinding.FragmentConstraintBinding
 class ConstraintFragment: Fragment() {
     private var _binding: FragmentConstraintBinding? = null
     private val binding: FragmentConstraintBinding
-    get() = _binding!!
+        get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentConstraintBinding.inflate(inflater,container, false)
+        _binding = FragmentConstraintBinding.inflate(inflater, container, false)
         return binding.root
     }
 

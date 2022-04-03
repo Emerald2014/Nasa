@@ -8,7 +8,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import ru.kudesnik.nasa.databinding.FragmentCoordinatorBinding
 
-class  CoordinatorFragment: Fragment() {
+class CoordinatorFragment : Fragment() {
     private var _binding: FragmentCoordinatorBinding? = null
     private val binding: FragmentCoordinatorBinding
         get() = _binding!!
@@ -18,7 +18,7 @@ class  CoordinatorFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentCoordinatorBinding.inflate(inflater,container, false)
+        _binding = FragmentCoordinatorBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -29,6 +29,7 @@ class  CoordinatorFragment: Fragment() {
         (binding.fabMini.getLayoutParams() as CoordinatorLayout.LayoutParams).behavior = behavior
 
     }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null

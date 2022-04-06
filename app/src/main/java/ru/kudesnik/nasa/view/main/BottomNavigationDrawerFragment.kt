@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import ru.kudesnik.nasa.R
 import ru.kudesnik.nasa.databinding.BottomNavigationLayoutBinding
+import ru.kudesnik.nasa.view.animation.AnimationActivity
 import ru.kudesnik.nasa.view.layout.LayoutActivity
 import ru.kudesnik.nasa.view.navigation.BottomNavigationActivity
 import ru.kudesnik.nasa.view.navigation.NavigationActivity
@@ -46,7 +47,9 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
                 }
                 R.id.navigation_three -> {
                     startActivity(Intent(requireContext(), LayoutActivity::class.java))
-
+                }
+                R.id.navigation_four -> {
+                    startActivity(Intent(requireContext(), AnimationActivity::class.java))
                 }
             }
             true

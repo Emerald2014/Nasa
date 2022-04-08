@@ -12,6 +12,7 @@ import ru.kudesnik.nasa.view.animation.AnimationActivity
 import ru.kudesnik.nasa.view.layout.LayoutActivity
 import ru.kudesnik.nasa.view.navigation.BottomNavigationActivity
 import ru.kudesnik.nasa.view.navigation.NavigationActivity
+import ru.kudesnik.nasa.view.recycler.RecyclerActivity
 
 class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
 
@@ -50,6 +51,9 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
                 }
                 R.id.navigation_four -> {
                     startActivity(Intent(requireContext(), AnimationActivity::class.java))
+                }
+                R.id.navigation_five -> {
+                    startActivity(Intent(requireContext(), RecyclerActivity::class.java))
                 }
             }
             true
